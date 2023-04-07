@@ -1,6 +1,6 @@
 {
     "parent": "block/cube_all",
     "textures": {
-        "all": "theboysmod:blocks/amongus"
+        "all": "theboysmod:blocks/zacks_balls"
     }
 }

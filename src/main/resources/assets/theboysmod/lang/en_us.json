@@ -1,5 +1,9 @@
 {
-    "itemGroup.theboysmod": "The Boys Mod Items",
-    "item.theboysmod.mario": "Mario",
-    "block.theboysmod.amongus": "Among Us Block"
+    "itemGroup.theboysmod": "The Boys Mod",
+    "item.theboysmod.teleport_staff": "Teleport Staff",
+    "item.theboysmod.beefstick": "Beefstick",
+    "item.theboysmod.raid_cocktail": "Raid Cocktail",
+    "item.theboysmod.matt_attack": "Matt Attack",
+    "block.theboysmod.zacks_balls": "Zack's Balls",
+    "enchantment.theboysmod.moon_walk": "Moon Walk"
 }

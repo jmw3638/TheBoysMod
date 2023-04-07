@@ -1,7 +1,10 @@
 package com.jakewac.theboysmod.init;
 
 import com.jakewac.theboysmod.TheBoysMod;
-import com.jakewac.theboysmod.items.TeleportItem;
+import com.jakewac.theboysmod.items.Beefstick;
+import com.jakewac.theboysmod.items.MattAttack;
+import com.jakewac.theboysmod.items.RaidCocktail;
+import com.jakewac.theboysmod.items.TeleportStaff;
 
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -12,19 +15,24 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public class ItemInit {
-    // Create a Deferred Register to hold Items which will all be registered under
-    // the "theboysmod" namespace
+    // Register
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, TheBoysMod.MODID);
 
-    // Creates a new BlockItem with the id "theboysmod:mario", combining the
-    // namespace and path
-    public static final RegistryObject<Item> MARIO_ITEM = ITEMS.register("mario",
-            () -> new Item(new Item.Properties().tab(TheBoysModCreativeTab.instance)
-                    .food(new FoodProperties.Builder().alwaysEat().nutrition(1).saturationMod(1)
-                            .effect(() -> new MobEffectInstance(MobEffects.JUMP, 100, 3), 1.0F)
-                            .build())));
+    // Items
 
-    public static final RegistryObject<Item> TELEPORT_ITEM = ITEMS.register("teleport_staff",
-            () -> new TeleportItem(new Item.Properties().tab(TheBoysModCreativeTab.instance)));
+    public static final RegistryObject<Item> RAID_COCKTAIL = ITEMS.register("raid_cocktail",
+            () -> new RaidCocktail(new Item.Properties().tab(TheBoysModCreativeTab.instance)));
+
+    public static final RegistryObject<Item> MATT_ATTACK = ITEMS.register("matt_attack",
+            () -> new MattAttack(new Item.Properties().tab(TheBoysModCreativeTab.instance)));
+
+    public static final RegistryObject<Item> BEEFSTICK = ITEMS.register("beefstick",
+            () -> new Beefstick(new Item.Properties().tab(TheBoysModCreativeTab.instance)
+                    .food(new FoodProperties.Builder().nutrition(20).saturationMod(6)
+                            .effect(() -> new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 1), 1.0F)
+                            .effect(() -> new MobEffectInstance(MobEffects.ABSORPTION, 1200, 4), 1.0F).build())));
+
+    public static final RegistryObject<Item> TELEPORT_STAFF = ITEMS.register("teleport_staff",
+            () -> new TeleportStaff(new Item.Properties().tab(TheBoysModCreativeTab.instance)));
 
 }

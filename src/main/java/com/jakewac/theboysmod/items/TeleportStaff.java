@@ -1,11 +1,6 @@
 package com.jakewac.theboysmod.items;
 
-import java.util.List;
-
-import javax.annotation.Nullable;
-
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
@@ -14,23 +9,15 @@ import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 
-public class TeleportItem extends Item {
+public class TeleportStaff extends Item {
 
-    public TeleportItem(Properties properties) {
+    public TeleportStaff(Properties properties) {
         super(properties);
-    }
-
-    @Override
-    public void appendHoverText(ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
-        tooltip.add(Component.literal("Teleports you to where you are looking"));
-
-        super.appendHoverText(stack, worldIn, tooltip, flagIn);
     }
 
     @Override
@@ -40,9 +27,9 @@ public class TeleportItem extends Item {
 
         player.setPos(lookPos.getX(), lookPos.getY(), lookPos.getZ());
 
-        player.fallDistance = 0F;
+        player.resetFallDistance();
 
-        player.getCooldowns().addCooldown(this, 60);
+        player.getCooldowns().addCooldown(this, 20);
 
         world.playSound(player, player.getX(), player.getY(), player.getZ(), SoundEvents.ENDERMAN_TELEPORT,
                 SoundSource.PLAYERS, 1.0F, 1.0F);
@@ -51,7 +38,7 @@ public class TeleportItem extends Item {
     }
 
     protected static BlockHitResult rayTrace(Level world, Player player, ClipContext.Fluid fluidMode) {
-        double range = 15;
+        double range = 100;
 
         float f = player.getXRot();
         float f1 = player.getYRot();

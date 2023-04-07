@@ -7,7 +7,7 @@ import net.minecraft.world.item.Items;
 public class TheBoysModCreativeTab extends CreativeModeTab {
 
     public static final TheBoysModCreativeTab instance = new TheBoysModCreativeTab(CreativeModeTab.TABS.length,
-            "The Boys Mod");
+            "theboysmod");
 
     private TheBoysModCreativeTab(int index, String label) {
         super(index, label);
